@@ -10,10 +10,15 @@ export const COLORS = {
     Text: {
         Dark: '#3d3d3d',
         Light: '#e5e5e5',
+        PlaceHolder: '#d3d3d3'
     } as const,
-    Border: { 
-        Light : '#b6b6b6'
-    }
+    Border: {
+        Light: '#b6b6b6'
+    } as const,
+    Severity: {
+        Error: '',
+        Warning: '',
+    } as const,
 } as const;
 
 export const ROUTES: Record<string, string> = {
