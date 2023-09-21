@@ -16,7 +16,7 @@ export const COLORS = {
         Light: '#b6b6b6'
     } as const,
     Severity: {
-        Error: '',
+        Error: '#c73636',
         Warning: '',
     } as const,
 } as const;

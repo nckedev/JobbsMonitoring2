@@ -27,7 +27,7 @@ export default function DashboardCard(props: AnimatedSplashEntryProps) {
                 style={style.container}
                 entering={animationsProps?.entering}
             >
-                <Text>test</Text>
+                { pr.children}
             </Animated.View>
         </Pressable>
     )
@@ -43,5 +43,6 @@ const style = StyleSheet.create({
         borderWidth: 0,
         height: 200,
         borderColor: COLORS.Text.Dark,
+        padding : 10,
     },
 })
