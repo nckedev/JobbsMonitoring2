@@ -45,6 +45,7 @@ export default function SplashScreen({route, navigation}: SplashScreenProp) {
                 </Animated.Text>
             </View>
             <AnimatedSplashEntry placeholder={"Username@jobbs.se"}
+                                icon={"bell"} 
                                  placeholderTextColor={COLORS.Text.PlaceHolder}
                                  onChangeText={setUsername}
                                  animationsProps={{entering: ZoomIn.duration(500).delay(1000).springify()}}
