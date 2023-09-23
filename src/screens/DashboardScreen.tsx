@@ -3,6 +3,7 @@ import {COLORS} from "../constants/constants";
 import React, {useEffect, useState} from "react";
 import DashboardCard from "../components/DashboardCard";
 import {CountGraphModel} from "../models/CountGraphModel";
+import {CountGraph} from "../components/CountGraph";
 
 export default function DashboardScreen() {
     const items: Array<CountGraphModel> = new Array<CountGraphModel>();
@@ -30,23 +31,6 @@ export default function DashboardScreen() {
     )
 }
 
-interface CountGraphProps extends React.ComponentProps<any> {
-    items: Array<CountGraphModel>
-}
-
-const CountGraph = (props: CountGraphProps) => {
-    const total = props.items.reduce((acc, curr) => acc + curr.count, 0)
-    return (
-        <View style={{flex: 1, alignSelf: "stretch", alignItems: "flex-start", justifyContent: "center"}}>
-            <View style={{position: "absolute"}}>
-                <Text>test</Text>
-            </View>
-            <View style={{position: "absolute"}}>
-                <Text style={{fontSize: 100, color: COLORS.Severity.Error, fontWeight: "bold"}}>{total}</Text>
-            </View>
-        </View>
-    );
-}
 const styles = StyleSheet.create({
     container: {
         flex: 1,

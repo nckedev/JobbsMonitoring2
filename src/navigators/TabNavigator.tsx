@@ -9,6 +9,7 @@ import {COLORS} from "../constants/constants";
 export type BottomTabParams = {
     Dash: undefined,
     List: ListNavigatorParams,
+    Search : undefined,
     Alerts: undefined,
     Settings: undefined,
 }
@@ -16,7 +17,8 @@ export type BottomTabParams = {
 const Tab = createBottomTabNavigator<BottomTabParams>()
 
 export default function TabNavigator() {
-    const iconSize = 32;
+    const activeIconSize = 32;
+    const inactiveIconSize = 25;
     return (
         <Tab.Navigator screenOptions={{
             headerShown: false,
@@ -24,32 +26,64 @@ export default function TabNavigator() {
             tabBarActiveTintColor: COLORS.Text.Dark,
             tabBarInactiveTintColor: COLORS.Text.Light,
         }}>
-            <Tab.Screen name="Dash" component={DashboardTab}
+            <Tab.Screen name="Dash"
+                        component={DashboardTab}
                         options={{
                             tabBarIcon: (tab) => {
                                 const icon = "apps"
-                                return (<Octicons name={icon} size={iconSize} color={tab.color}/>);
+                                return (
+                                    <Octicons name={icon}
+                                              size={tab.focused ? activeIconSize : inactiveIconSize}
+                                              color={tab.color}/>
+                                );
                             },
                         }}/>
-            <Tab.Screen name="List" component={ListNavigator}
+            <Tab.Screen name="List"
+                        component={ListNavigator}
                         options={{
                             tabBarIcon: (tab) => {
                                 const icon = "list-unordered";
-                                return (<Octicons name={icon} size={iconSize} color={tab.color}/>);
+                                return (
+                                    <Octicons name={icon}
+                                              size={tab.focused ? activeIconSize : inactiveIconSize}
+                                              color={tab.color}/>
+                                );
                             },
                         }}/>
-            <Tab.Screen name="Alerts" component={AlertsScreen}
+            <Tab.Screen name="Search"
+                        component={ListNavigator}
                         options={{
                             tabBarIcon: (tab) => {
-                                const icon = tab.focused ? "bell-fill" : "bell";
-                                return (<Octicons name={icon} size={iconSize} color={tab.color}/>);
+                                const icon = "search";
+                                return (
+                                    <Octicons name={icon}
+                                              size={tab.focused ? activeIconSize : inactiveIconSize}
+                                              color={tab.color}/>
+                                );
                             },
                         }}/>
-            <Tab.Screen name="Settings" component={SettingsScreen}
+            <Tab.Screen name="Alerts"
+                        component={AlertsScreen}
+                        options={{
+                            tabBarIcon: (tab) => {
+                                const icon = "bell";
+                                return (
+                                    <Octicons name={icon}
+                                              size={tab.focused ? activeIconSize : inactiveIconSize}
+                                              color={tab.color}/>
+                                );
+                            },
+                        }}/>
+            <Tab.Screen name="Settings"
+                        component={SettingsScreen}
                         options={{
                             tabBarIcon: (tab) => {
                                 const icon = "gear"
-                                return (<Octicons name={icon} size={iconSize} color={tab.color}/>);
+                                return (
+                                    <Octicons name={icon}
+                                              size={tab.focused ? activeIconSize : inactiveIconSize}
+                                              color={tab.color}/>
+                                );
                             },
                         }}/>
         </Tab.Navigator>

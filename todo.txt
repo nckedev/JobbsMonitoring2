@@ -1,0 +1,6 @@
+typer av componenter
+    linje diagram
+    cirkel diagram
+    health check 
+    top 3; slowest etc..
+    

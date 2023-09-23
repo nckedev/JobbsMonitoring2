@@ -1,15 +1,16 @@
-import React, {PropsWithChildren} from "react";
-import {SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native';
+import React, {FC, PropsWithChildren} from "react";
+import {SafeAreaView, StyleSheet, Text, TextInput, TextProps, View} from 'react-native';
 import {COLORS} from "../constants/constants";
 import Animated, {FadeIn, FadeInLeft, FadeInRight, SlideInLeft} from 'react-native-reanimated'
 import {Octicons} from '@expo/vector-icons';
 
 
-
+type IconName = "person" | "key";
 interface AnimatedSplashEntryProps extends React.ComponentProps<typeof TextInput>{
     animationsProps?: React.ComponentProps<typeof Animated.View>
-    icon?: string,
+    icon?: IconName,
 }
+
 
 export default function AnimatedSplashEntry(props: AnimatedSplashEntryProps) {
     const {icon, animationsProps, ...pr} = props
@@ -18,7 +19,7 @@ export default function AnimatedSplashEntry(props: AnimatedSplashEntryProps) {
             style={style.container}
             entering={animationsProps?.entering}
         >
-        <Octicons name={"bell"} size={20} color={COLORS.Text.PlaceHolder} />
+        <Octicons name={icon} size={20} color={COLORS.Border.Light} style={{ width : 20}} />
             <TextInput cursorColor={COLORS.Text.Dark} style={style.textInput} {...pr}></TextInput>
         </Animated.View>
     )
@@ -26,7 +27,7 @@ export default function AnimatedSplashEntry(props: AnimatedSplashEntryProps) {
 
 const style = StyleSheet.create({
     container: {
-        backgroundColor: COLORS.Text.Light,
+        backgroundColor: COLORS.Card.Light,
         paddingHorizontal: 15,
         justifyContent: "flex-start",
         alignItems: "center",
@@ -40,6 +41,8 @@ const style = StyleSheet.create({
         paddingBottom: 4,
     },
     textInput: {
+        alignSelf: "stretch",
+        backgroundColor : "#fff343",
         marginLeft: 10,
         fontSize: 25,
         color: COLORS.Text.Dark

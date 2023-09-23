@@ -15,8 +15,11 @@ export const COLORS = {
     Border: {
         Light: '#b6b6b6'
     } as const,
+    Card : { 
+        Light : '#f8f8f8'
+    } as const,
     Severity: {
-        Error: '#c73636',
+        Error: 'rgba(199,54,54,0.49)',
         Warning: '',
     } as const,
 } as const;

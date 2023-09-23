@@ -1,17 +1,11 @@
-import React, {PropsWithChildren} from "react";
+import React from "react";
 import {
-    Button,
     Pressable,
-    SafeAreaView,
     StyleSheet,
-    Text,
-    TextInput,
-    Touchable,
-    TouchableOpacity,
-    View
+    TouchableOpacity
 } from 'react-native';
 import {COLORS} from "../constants/constants";
-import Animated, {FadeIn, FadeInLeft, FadeInRight, SlideInLeft} from 'react-native-reanimated'
+import Animated from 'react-native-reanimated'
 
 
 interface AnimatedSplashEntryProps extends React.ComponentProps<typeof TouchableOpacity> {
@@ -35,7 +29,7 @@ export default function DashboardCard(props: AnimatedSplashEntryProps) {
 
 const style = StyleSheet.create({
     container: {
-        backgroundColor: COLORS.Text.Light,
+        backgroundColor: COLORS.Card.Light,
         justifyContent: "center",
         alignItems: "center",
         borderRadius: 20,
