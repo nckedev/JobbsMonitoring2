@@ -6,7 +6,8 @@ import {Octicons} from '@expo/vector-icons';
 
 
 type IconName = "person" | "key";
-interface AnimatedSplashEntryProps extends React.ComponentProps<typeof TextInput>{
+
+interface AnimatedSplashEntryProps extends React.ComponentProps<typeof TextInput> {
     animationsProps?: React.ComponentProps<typeof Animated.View>
     icon?: IconName,
 }
@@ -19,7 +20,7 @@ export default function AnimatedSplashEntry(props: AnimatedSplashEntryProps) {
             style={style.container}
             entering={animationsProps?.entering}
         >
-        <Octicons name={icon} size={20} color={COLORS.Border.Light} style={{ width : 20}} />
+            <Octicons name={icon} size={20} color={COLORS.Border.Light} style={{width: 20}}/>
             <TextInput cursorColor={COLORS.Text.Dark} style={style.textInput} {...pr}></TextInput>
         </Animated.View>
     )
@@ -41,8 +42,7 @@ const style = StyleSheet.create({
         paddingBottom: 4,
     },
     textInput: {
-        alignSelf: "stretch",
-        backgroundColor : "#fff343",
+        flex: 1,
         marginLeft: 10,
         fontSize: 25,
         color: COLORS.Text.Dark
