@@ -28,7 +28,7 @@ export default function SplashScreen({route, navigation}: SplashScreenProp) {
     return (
         // <ScrollView style={style.content} contentContainerStyle={{ flexGrow:1, justifyContent: "center", gap: 10}}>
         <KeyboardAvoidingView style={style.content}
-                              behavior={Platform.OS === 'ios' ? 'padding' : 'height'} >
+                              behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
             <View style={{alignSelf: "center", flexDirection: "row"}}>
 
                 <Animated.Text style={[style.logoText, {color: COLORS.Primary}]}
@@ -45,7 +45,7 @@ export default function SplashScreen({route, navigation}: SplashScreenProp) {
                 </Animated.Text>
             </View>
             <AnimatedSplashEntry placeholder={"Username@jobbs.se"}
-                                icon={"person"} 
+                                 icon={"person"}
                                  placeholderTextColor={COLORS.Text.PlaceHolder}
                                  onChangeText={setUsername}
                                  animationsProps={{entering: ZoomIn.duration(500).delay(1000).springify()}}
@@ -57,9 +57,9 @@ export default function SplashScreen({route, navigation}: SplashScreenProp) {
                                  onChangeText={setPassword}
                                  animationsProps={{entering: ZoomIn.duration(500).delay(1300).springify()}}
                                  value={password}/>
-            <AnimatedSplashButton onPress={() => loginPressed(username, password, navigation )} 
-                                  animationsProps={ { entering : ZoomIn.duration(500).delay(1500).springify()}} 
-                                  style={{ marginTop:20}}/>
+            <AnimatedSplashButton onPress={() => loginPressed(username, password, navigation)}
+                                  animationsProps={{entering: ZoomIn.duration(500).delay(1500).springify()}}
+                                  style={{marginTop: 20}}/>
         </KeyboardAvoidingView>
         // </ScrollView>
     )

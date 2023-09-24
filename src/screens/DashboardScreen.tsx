@@ -8,9 +8,9 @@ import {CountGraph} from "../components/CountGraph";
 export default function DashboardScreen() {
     const items: Array<CountGraphModel> = new Array<CountGraphModel>();
 
-    for (let i = 0; i < 100; i++) {
-        const date = new Date();
-        date.setMinutes(date.getMinutes() - i * 10);
+    for (let i = 0; i < 24; i++) {
+        const date = new Date('2023-09-30T13:00:00.000Z');
+        date.setMinutes(date.getMinutes() + i * 10);
         items.push({count: Math.floor(Math.random() * 10), timestamp: date})
     }
     
