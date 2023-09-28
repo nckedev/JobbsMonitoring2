@@ -17,8 +17,8 @@ interface GraphData {
 const makeGraph = (data: Array<CountGraphModel>): GraphData => {
     const min = Math.min(...data.map(x => x.count));
     const max = Math.max(...data.map(x => x.count));
-    console.log(new Date(2023, 8, 30, 15))
-    console.log(data)
+    // console.log(new Date(2023, 8, 30, 15))
+    // console.log(data)
 
     const getYAxis = scaleLinear()
         .domain([0, max])
@@ -49,7 +49,7 @@ interface CountGraphProps extends React.ComponentProps<any> {
 export const CountGraph = (props: CountGraphProps) => {
     const total = props.items.reduce((acc, curr) => acc + curr.count, 0)
 
-    const grapData = makeGraph(props.items);
+    const graphData = makeGraph(props.items);
     return (
         <View style={styles.container}>
             <View style={{position: "absolute"}}>
@@ -57,7 +57,7 @@ export const CountGraph = (props: CountGraphProps) => {
             </View>
             <View style={{position: "absolute", zIndex: 99,  width: 200, height: 200}}>
                 <Canvas style={{backgroundColor: "#ff342", height: GRAPH_HEIGHT, width: GRAPH_WIDTH}}>
-                    <Path path={grapData.curve!}
+                    <Path path={graphData.curve!}
                           style={"stroke"}
                           strokeWidth={2}
                           color={"#000000"}

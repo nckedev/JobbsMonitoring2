@@ -4,9 +4,8 @@ import React, {useEffect, useState} from "react";
 import DashboardCard from "../components/DashboardCard";
 import {CountGraphModel} from "../models/CountGraphModel";
 import {CountGraph} from "../components/CountGraph";
-import ReadLogs from "../services/AzureService";
 
-export default async function DashboardScreen() {
+export default function DashboardScreen() {
     const items: Array<CountGraphModel> = new Array<CountGraphModel>();
 
     for (let i = 0; i < 24; i++) {
@@ -14,8 +13,6 @@ export default async function DashboardScreen() {
         date.setMinutes(date.getMinutes() + i * 10);
         items.push({count: Math.floor(Math.random() * 10), timestamp: date})
     }
-    
-    await ReadLogs();
     
     return (
         <SafeAreaView>

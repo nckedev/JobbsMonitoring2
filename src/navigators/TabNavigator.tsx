@@ -5,6 +5,7 @@ import AlertsScreen from "../screens/AlertsScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 import {Octicons} from '@expo/vector-icons';
 import {COLORS} from "../constants/constants";
+import DashboardScreen from "../screens/DashboardScreen";
 
 export type BottomTabParams = {
     Dash: undefined,
@@ -27,7 +28,7 @@ export default function TabNavigator() {
             tabBarInactiveTintColor: COLORS.Text.Light,
         }}>
             <Tab.Screen name="Dash"
-                        component={DashboardTab}
+                        component={DashboardScreen}
                         options={{
                             tabBarIcon: (tab) => {
                                 const icon = "apps"
